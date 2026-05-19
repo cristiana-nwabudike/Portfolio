@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Christiana Nwabudike</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    align-items: start;
+    padding: 5rem 0;
+  }
+  .about-photo {
+    position: sticky;
+    top: 100px;
+    aspect-ratio: 4/5;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+  .about-body p {
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+  }
+  .about-body p.lead {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    line-height: 1.4;
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+  .about-body p.lead em { color: var(--coral); font-style: italic; }
+
+  .values {
+    background: var(--cream-soft);
+    padding: 5rem 0;
+  }
+  .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .value-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 2rem;
+    border: 1px solid var(--line);
+    transition: all 0.3s;
+  }
+  .value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); }
+  .value-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--grad-warm);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+  }
+  .value-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+  .value-card p { font-size: 0.95rem; }
+
+  .timeline-section { padding: 5rem 0; }
+  .timeline { position: relative; max-width: 760px; margin: 3rem auto 0; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--line);
+  }
+  .tl-item {
+    position: relative;
+    padding-left: 4rem;
+    padding-bottom: 2.5rem;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 6px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--coral);
+    box-shadow: 0 0 0 4px var(--cream-soft);
+  }
+  .tl-item h4 { font-family: var(--font-body); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .tl-meta { font-size: 0.9rem; color: var(--mute); margin-bottom: 0.5rem; }
+
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 0; }
+    .about-photo { position: static; max-width: 360px; margin: 0 auto; }
+    .value-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Christiana<span>.</span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+      <li><a href="contact.html" class="nav-cta">Get in touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">About</span>
+    <h1 class="mt-2">Hi, I'm Christiana.</h1>
+    <p>A Salesforce &amp; nCino specialist who believes the best automation feels invisible — it just makes hard things easier for the people doing the work.</p>
+  </div>
+</header>
+
+<section style="padding: 0;">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="https://raw.githubusercontent.com/cristiana-nwabudike/Christiana/main/6F25B341-FE62-4190-9466-7DDA0C478B91_1_105_c.jpeg" alt="Christiana Nwabudike">
+      </div>
+      <div class="about-body">
+        <p class="lead">12 certifications. 48 superbadges. 5+ years turning <em>"this should be easier"</em> into solutions that actually are — and increasingly, doing it with AI in the loop.</p>
+
+        <p>I'm a Salesforce and nCino administrator with deep experience across Sales Cloud, Service Cloud, Financial Services Cloud, CPQ, and the full nCino commercial banking suite. My day-to-day is the satisfying intersection of clean configuration, thoughtful flow design, and stakeholder collaboration.</p>
+
+        <p>Most recently, I've been leading automation work in commercial lending — building nCino-integrated flows that handle disbursements, fee approvals, and borrowing structures. The kind of work that saves lending teams thousands of hours a year and keeps audits clean.</p>
+
+        <p>I'm also leaning hard into AI. I hold the Salesforce AI Associate and Agentforce Specialist certifications, and I've built a multi-purpose AI admin agent (powered by Claude, connected to Salesforce, Slack, and Gmail through MCP) that takes recurring admin work off my plate while keeping me firmly in the loop on anything externally-visible. Responsible AI guardrails, prompt engineering, and named workflows are part of how I work now — not someday.</p>
+
+        <p>Earlier in my career I worked on a major implementation at Affinity Credit Union, including audit automation and CPQ configuration. I've also been responsible for end-to-end Salesforce admin work — security models, sharing rules, validation, deployment management — across multiple orgs.</p>
+
+        <p>Outside of paid work, I volunteer as the data administrator at Lofty Heights Christian Centre, a two-campus church in Calgary and Regina. I'm currently leading their NPSP Phase 1 implementation: custom objects, role hierarchies, sharing models, and a 1,185-row data migration. I also built and deployed a QR-based check-in system in Production — Apex, Lightning Web Components, and an Experience Cloud Site — picking up Apex along the way.</p>
+
+        <p>I'm always curious about better ways to do this work — happy to chat about Salesforce, nCino, NPSP, AI agents, or whatever you're trying to untangle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="container">
+    <div style="text-align: center; max-width: 640px; margin: 0 auto;">
+      <span class="eyebrow">How I work</span>
+      <h2 class="mt-2">Three things I care about.</h2>
+    </div>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-bullseye"></i></div>
+        <h3>Honest scope</h3>
+        <p>I'd rather give you a clear "this will take longer than you think, here's why" than a shiny answer that breaks in production.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-people-group"></i></div>
+        <h3>Built with users</h3>
+        <p>The admins, lenders, and end users who live in the system every day know things you can't learn from a requirements doc. I listen first.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-recycle"></i></div>
+        <h3>Documentation that lasts</h3>
+        <p>Field descriptions, flow descriptions, validation rule names — written so the next admin (or future me) thanks me, not curses me.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="timeline-section">
+  <div class="container">
+    <div style="text-align: center; max-width: 640px; margin: 0 auto;">
+      <span class="eyebrow">Background</span>
+      <h2 class="mt-2">A few highlights.</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <h4>Multi-Purpose AI Admin Agent</h4>
+        <div class="tl-meta">2026 · Self-Built · Claude + MCP</div>
+        <p>Designed and deployed a Claude-powered AI agent connected to Salesforce, Slack, and Gmail through MCP — handling daily briefs, meeting prep, draft comms, and release notes with explicit approval rails and prompt injection defense built in.</p>
+      </div>
+      <div class="tl-item">
+        <h4>NPSP Phase 1 — Lofty Heights Christian Centre <span style="display: inline-block; background: rgba(245, 181, 68, 0.2); color: #B8801A; padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-left: 0.5rem;">Volunteer</span></h4>
+        <div class="tl-meta">2025–2026 · Volunteer Data Administrator</div>
+        <p>Leading a full Salesforce NPSP build for a two-campus church: 14 Epics, 57 user stories, custom objects for Attendance and Ministry Involvement, seven-role security hierarchy, and a 1,185-row data migration.</p>
+      </div>
+      <div class="tl-item">
+        <h4>QR-Based Church Check-In System <span style="display: inline-block; background: rgba(245, 181, 68, 0.2); color: #B8801A; padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-left: 0.5rem;">Volunteer</span></h4>
+        <div class="tl-meta">2025 · Self-Built · Deployed to Production</div>
+        <p>Built and shipped an Apex + LWC + Experience Cloud Site solution for member check-in. Token-secured, guest-user-hardened, with full test coverage. Picked up Apex on the way.</p>
+      </div>
+      <div class="tl-item">
+        <h4>nCino Commercial Lending Automation</h4>
+        <div class="tl-meta">Salesforce &amp; nCino Administrator</div>
+        <p>Built and shipped flows for fee &amp; disbursement automation, rate discretion controls, and borrowing structure optimization across complex commercial lending workflows.</p>
+      </div>
+      <div class="tl-item">
+        <h4>Implementation work — Affinity Credit Union</h4>
+        <div class="tl-meta">Salesforce Administrator</div>
+        <p>Audit automation, CPQ configuration, sales process optimization, and user enablement across a multi-team rollout.</p>
+      </div>
+      <div class="tl-item">
+        <h4>Education &amp; certifications</h4>
+        <div class="tl-meta">Ongoing</div>
+        <p>Postgraduate Diploma in Organisation Management (Cambrian College), BA International Relations, plus 12 Salesforce/nCino certifications (including AI Associate &amp; Agentforce Specialist) and 48 Trailhead superbadges.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Christiana Nwabudike</h3>
+      <p>Salesforce &amp; nCino administrator based in Calgary, AB. Building thoughtful automation for commercial banking and beyond.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul class="footer-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:cristiana.nwabudike@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/christiana-nwabudike" target="_blank">LinkedIn</a></li>
+        <li><a href="https://www.salesforce.com/trailblazer/cnwabudike202" target="_blank">Trailhead</a></li>
+        <li><a href="contact.html">Contact page</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Christiana Nwabudike. Built with care.</span>
+    <div class="footer-socials">
+      <a href="mailto:cristiana.nwabudike@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/christiana-nwabudike" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.salesforce.com/trailblazer/cnwabudike202" target="_blank" aria-label="Trailhead"><i class="fas fa-mountain"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

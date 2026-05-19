@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salesforce Sales Process Optimization — Christiana Nwabudike</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  .case-hero {
+    background: var(--grad-hero);
+    color: var(--cream);
+    padding: 6rem 0 8rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .case-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 70px;
+    background: var(--cream);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+  }
+  .case-hero .eyebrow { color: var(--amber); }
+  .case-hero .eyebrow::before { background: var(--amber); }
+  .case-hero h1 { color: var(--cream); margin: 1.25rem 0 1rem; }
+  .case-hero p.subtitle {
+    color: rgba(250, 247, 242, 0.85);
+    font-size: 1.25rem;
+    max-width: 680px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(250, 247, 242, 0.75);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    transition: gap 0.25s, color 0.2s;
+  }
+  .back-link:hover { gap: 0.85rem; color: var(--coral); }
+
+  .meta-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+    margin-top: -3.5rem;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 3;
+  }
+  .meta-cell {
+    padding: 0 1.25rem;
+    border-right: 1px solid var(--line);
+  }
+  .meta-cell:last-child { border-right: none; }
+  .meta-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+  .meta-value { font-weight: 600; color: var(--ink); }
+
+  .case-content { padding: 0 0 5rem; }
+  .case-section { margin-bottom: 4rem; }
+  .case-section h2 { margin-bottom: 1.25rem; font-size: 2rem; }
+  .case-section h2 em { color: var(--coral); font-style: italic; font-weight: 400; }
+  .case-section p { font-size: 1.08rem; margin-bottom: 1rem; max-width: 760px; }
+  .case-section ul { margin-left: 1.25rem; }
+  .case-section ul li {
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    padding-left: 0.5rem;
+  }
+  .case-section ul li::marker { color: var(--coral); }
+
+  .solution-grid { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
+  .solution-step {
+    background: white;
+    border-left: 4px solid var(--coral);
+    border-radius: var(--radius);
+    padding: 1.75rem 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s;
+  }
+  .solution-step:hover { transform: translateX(6px); box-shadow: var(--shadow); }
+  .solution-step h4 { font-size: 1.2rem; margin-bottom: 0.6rem; font-family: var(--font-display); }
+  .solution-step p { margin: 0; font-size: 1rem; }
+
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .outcome-card {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 2.5rem 1.5rem;
+    border-radius: var(--radius);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .outcome-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -30%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 107, 74, 0.25), transparent 70%);
+  }
+  .outcome-num {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1;
+    background: var(--grad-warm);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+  .outcome-label {
+    font-size: 0.95rem;
+    color: rgba(250, 247, 242, 0.8);
+    position: relative;
+  }
+
+  .tools-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+
+  .next-project {
+    background: var(--cream-soft);
+    padding: 4rem 0;
+    text-align: center;
+  }
+  .next-project h3 { margin-bottom: 1.5rem; }
+  .next-project h3 em { color: var(--coral); font-style: italic; font-weight: 400; }
+
+  @media (max-width: 900px) {
+    .meta-bar { grid-template-columns: 1fr; gap: 1.25rem; padding: 1.5rem; }
+    .meta-cell { border-right: none; border-bottom: 1px solid var(--line); padding: 0 0 1rem; }
+    .meta-cell:last-child { border-bottom: none; padding-bottom: 0; }
+    .outcomes-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">Christiana<span>.</span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../skills.html">Skills</a></li>
+      <li><a href="../projects.html">Projects</a></li>
+      <li><a href="../certifications.html">Certifications</a></li>
+      <li><a href="../contact.html" class="nav-cta">Get in touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="container">
+    <a href="../projects.html" class="back-link"><i class="fas fa-arrow-left"></i> All projects</a>
+    <span class="eyebrow">Case Study</span>
+    <h1>Salesforce Sales Process Optimization</h1>
+    <p class="subtitle">Streamlining lead-to-opportunity conversion and pipeline visibility.</p>
+    <div class="flex gap-1 mt-3" style="flex-wrap: wrap;">
+      <span class="tag tag-amber">Sales Cloud</span><span class="tag tag-teal">Salesforce Flow</span><span class="tag ">Pipeline</span><span class="tag ">Reporting</span>
+    </div>
+  </div>
+</header>
+
+<section style="padding: 0;">
+  <div class="container">
+    <div class="meta-bar">
+      <div class="meta-cell"><div class="meta-label">Role</div><div class="meta-value">Salesforce Administrator</div></div>
+      <div class="meta-cell"><div class="meta-label">Platform</div><div class="meta-value">Salesforce Sales Cloud</div></div>
+      <div class="meta-cell"><div class="meta-label">Focus area</div><div class="meta-value">Sales Operations</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="case-content">
+  <div class="container">
+
+    <div class="case-section">
+      <h2>The <em>overview.</em></h2>
+      <p>The sales team had the right pipeline volume but the wrong friction — leads sitting too long, discount approvals living in email threads, and dashboards that lagged reality. The work was about removing that drag and giving reps and managers the information they actually act on.</p>
+    </div>
+
+    <div class="case-section">
+      <h2>The <em>challenge.</em></h2>
+      <ul><li>Lead response time was inconsistent — hot leads sometimes sat for days.</li><li>Discount approvals were happening informally, with no clear paper trail.</li><li>Sales managers lacked real-time visibility into pipeline health and team performance.</li></ul>
+    </div>
+
+    <div class="case-section">
+      <h2>The <em>solution.</em></h2>
+      <div class="solution-grid"><div class="solution-step"><h4>Smart lead routing</h4><p>Implemented custom lead assignment rules and automated email alerts to sales reps, giving leads a clear owner the moment they hit the queue.</p></div><div class="solution-step"><h4>Discount approval flows</h4><p>Designed and configured approval processes for discounted opportunities, replacing ad-hoc email threads with structured, traceable workflows.</p></div><div class="solution-step"><h4>Dashboards that drive decisions</h4><p>Built sales dashboards and reports giving real-time insight into team performance, pipeline health, and conversion rates — surfacing what to do next, not just what happened.</p></div></div>
+    </div>
+
+    <div class="case-section">
+      <h2>The <em>outcomes.</em></h2>
+      <div class="outcomes-grid"><div class="outcome-card"><div class="outcome-num">20%</div><div class="outcome-label">improvement in lead response time</div></div><div class="outcome-card"><div class="outcome-num">30%</div><div class="outcome-label">reduction in manual approval review time</div></div><div class="outcome-card"><div class="outcome-num">Real-time</div><div class="outcome-label">pipeline visibility for sales leadership</div></div></div>
+    </div>
+
+    <div class="case-section">
+      <h2>Tools &amp; <em>technologies.</em></h2>
+      <div class="tools-list"><span class="tag">Salesforce Sales Cloud</span><span class="tag">Salesforce Flow</span><span class="tag">Approval Processes</span><span class="tag">Lead Assignment Rules</span><span class="tag">Reports &amp; Dashboards</span></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="next-project">
+  <div class="container">
+    <h3>Want to see <em>more?</em></h3>
+    <a href="../projects.html" class="btn btn-primary">Browse all projects <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Christiana Nwabudike</h3>
+      <p>Salesforce &amp; nCino administrator based in Calgary, AB. Building thoughtful automation for commercial banking and beyond.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul class="footer-links">
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../skills.html">Skills</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../certifications.html">Certifications</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:cristiana.nwabudike@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/christiana-nwabudike" target="_blank">LinkedIn</a></li>
+        <li><a href="https://www.salesforce.com/trailblazer/cnwabudike202" target="_blank">Trailhead</a></li>
+        <li><a href="../contact.html">Contact page</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Christiana Nwabudike. Built with care.</span>
+    <div class="footer-socials">
+      <a href="mailto:cristiana.nwabudike@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/christiana-nwabudike" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.salesforce.com/trailblazer/cnwabudike202" target="_blank" aria-label="Trailhead"><i class="fas fa-mountain"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

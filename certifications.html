@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certifications — Christiana Nwabudike</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  .certs-section { padding: 5rem 0; }
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 3rem;
+  }
+  .cert-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .cert-card::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at top right, rgba(255, 107, 74, 0.15), transparent 70%);
+  }
+  .cert-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: rgba(255, 107, 74, 0.3);
+  }
+  .cert-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--grad-warm);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .cert-icon.alt { background: var(--grad-cool); }
+  .cert-card h4 { font-family: var(--font-body); font-size: 0.98rem; font-weight: 600; line-height: 1.3; margin: 0.3rem 0 0; }
+
+  .super-section {
+    background: var(--cream-soft);
+    padding: 5rem 0;
+  }
+  .super-intro {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 3rem;
+  }
+  .super-intro h2 em { color: var(--coral); font-style: italic; font-weight: 400; }
+  .super-stat {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .super-stat::before {
+    content: '';
+    position: absolute;
+    top: -30%; right: -20%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(245, 181, 68, 0.3), transparent 70%);
+  }
+  .super-stat .num {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1;
+    background: var(--grad-warm);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+  }
+  .super-stat .label {
+    color: rgba(250, 247, 242, 0.85);
+    margin-top: 0.5rem;
+    font-weight: 500;
+    position: relative;
+  }
+
+  .super-list {
+    columns: 2;
+    column-gap: 2rem;
+    list-style: none;
+  }
+  .super-list li {
+    break-inside: avoid;
+    padding: 0.6rem 0;
+    border-bottom: 1px dashed var(--line);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    font-size: 0.95rem;
+  }
+  .super-list li i {
+    color: var(--coral);
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    flex-shrink: 0;
+  }
+
+  .ranger {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    margin-top: 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .ranger::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(245, 181, 68, 0.18), transparent 60%);
+  }
+  .ranger i {
+    font-size: 3rem;
+    color: var(--amber);
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .ranger h3 { color: var(--cream); margin-bottom: 0.5rem; position: relative; }
+  .ranger p { color: rgba(250, 247, 242, 0.75); position: relative; max-width: 540px; margin: 0 auto; }
+
+  @media (max-width: 900px) {
+    .certs-grid { grid-template-columns: 1fr; }
+    .super-intro { grid-template-columns: 1fr; gap: 2rem; }
+    .super-list { columns: 1; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Christiana<span>.</span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+      <li><a href="contact.html" class="nav-cta">Get in touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">Credentials</span>
+    <h1 class="mt-2">12 certifications, 48 superbadges.</h1>
+    <p>A snapshot of the certifications and Trailhead superbadges that back up the day-to-day work.</p>
+  </div>
+</header>
+
+<section class="certs-section">
+  <div class="container">
+    <span class="eyebrow">Certifications</span>
+    <h2 class="mt-2">Salesforce &amp; nCino certifications.</h2>
+    <div class="certs-grid">
+      <div class="cert-card"><div class="cert-icon"><i class="fas fa-university"></i></div><div><h4>nCino Commercial Banking 201</h4></div></div>
+      <div class="cert-card"><div class="cert-icon alt"><i class="fas fa-database"></i></div><div><h4>Salesforce Data Cloud Consultant</h4></div></div>
+      <div class="cert-card"><div class="cert-icon"><i class="fas fa-robot"></i></div><div><h4>Salesforce Certified Agentforce Specialist</h4></div></div>
+      <div class="cert-card"><div class="cert-icon alt"><i class="fas fa-globe"></i></div><div><h4>Salesforce Certified Experience Cloud Consultant</h4></div></div>
+      <div class="cert-card"><div class="cert-icon"><i class="fas fa-chart-pie"></i></div><div><h4>Salesforce Certified Business Analyst</h4></div></div>
+      <div class="cert-card"><div class="cert-icon alt"><i class="fas fa-brain"></i></div><div><h4>Salesforce Certified AI Associate</h4></div></div>
+      <div class="cert-card"><div class="cert-icon"><i class="fas fa-user-shield"></i></div><div><h4>Salesforce Advanced Administrator</h4></div></div>
+      <div class="cert-card"><div class="cert-icon alt"><i class="fas fa-cubes"></i></div><div><h4>Salesforce Certified Platform App Builder</h4></div></div>
+      <div class="cert-card"><div class="cert-icon"><i class="fas fa-chart-line"></i></div><div><h4>Salesforce Certified Sales Cloud Consultant</h4></div></div>
+      <div class="cert-card"><div class="cert-icon alt"><i class="fas fa-headset"></i></div><div><h4>Salesforce Certified Service Cloud Consultant</h4></div></div>
+      <div class="cert-card"><div class="cert-icon"><i class="fas fa-user"></i></div><div><h4>Salesforce Associate</h4></div></div>
+      <div class="cert-card"><div class="cert-icon alt"><i class="fas fa-cog"></i></div><div><h4>Salesforce Certified Administrator</h4></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="super-section">
+  <div class="container">
+    <div class="super-intro">
+      <div class="super-stat">
+        <div class="num">48</div>
+        <div class="label">Trailhead Superbadges</div>
+      </div>
+      <div>
+        <span class="eyebrow">Trailhead</span>
+        <h2 class="mt-2">Superbadges that go <em>deeper.</em></h2>
+        <p>Superbadges are hands-on, scenario-based credentials from Salesforce Trailhead. Each one is a real project with real configuration — not multiple choice. Here's the running list:</p>
+      </div>
+    </div>
+
+    <ul class="super-list">
+      <li><i class="fas fa-award"></i>Access Governance Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>App Customization Specialist</li>
+      <li><i class="fas fa-award"></i>Approval Process Management Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Approval Process Specialist Superbadge</li>
+      <li><i class="fas fa-award"></i>Approval Process Troubleshooting Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Business Administration Specialist</li>
+      <li><i class="fas fa-award"></i>Data Model Optimization Specialist Superbadge</li>
+      <li><i class="fas fa-award"></i>Data Protection Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Data Quality Specialist Superbadge</li>
+      <li><i class="fas fa-award"></i>Data Standardization Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Data Validation Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Financial Services Cloud Specialist</li>
+      <li><i class="fas fa-award"></i>Flow Administration Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Flow Collections and Loops Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Flow Data Collections Optimization Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Flow Debugging Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Flow Elements and Resources Specialist Superbadge</li>
+      <li><i class="fas fa-award"></i>Flow Error Handling Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Flow Fundamentals Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Flow Interactions Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Flow Management Specialist Superbadge</li>
+      <li><i class="fas fa-award"></i>Flow Optimization Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Formulas Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Lightning Analyst Super Set</li>
+      <li><i class="fas fa-award"></i>Lightning Experience Reports &amp; Dashboards Specialist</li>
+      <li><i class="fas fa-award"></i>Lightning Implementation Specialist</li>
+      <li><i class="fas fa-award"></i>Object Relationships Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Process Automation Specialist Superbadge</li>
+      <li><i class="fas fa-award"></i>Record-Triggered Flow Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Sales Accounts Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Sales Cloud and Console Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Sales Customer Relationship Management Specialist Superbadge</li>
+      <li><i class="fas fa-award"></i>Sales Opportunities Management Specialist Superbadge</li>
+      <li><i class="fas fa-award"></i>Sales Opportunities Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Sales Path and Interactions Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Sales Products and Quotes Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Screen Flow Distribution Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Screen Flow Fundamentals Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Screen Flow Specialist Superbadge</li>
+      <li><i class="fas fa-award"></i>Screenless Flow Specialist Superbadge</li>
+      <li><i class="fas fa-award"></i>Scheduled Flow and Subflow Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Security and Performance Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>Selling Specialist Super Set</li>
+      <li><i class="fas fa-award"></i>Selling with Sales Cloud Specialist</li>
+      <li><i class="fas fa-award"></i>Service Cloud Specialist</li>
+      <li><i class="fas fa-award"></i>User Access Fundamentals Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>User Access Troubleshooting Superbadge Unit</li>
+      <li><i class="fas fa-award"></i>User Experience Superbadge Unit</li>
+    </ul>
+
+    <div class="ranger">
+      <i class="fas fa-mountain"></i>
+      <h3>Double Star Ranger</h3>
+      <p>Trailhead Double Star Ranger rank — earned through consistent learning, hands-on superbadges, and community contribution across the Salesforce ecosystem.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Christiana Nwabudike</h3>
+      <p>Salesforce &amp; nCino administrator based in Calgary, AB. Building thoughtful automation for commercial banking and beyond.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul class="footer-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:cristiana.nwabudike@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/christiana-nwabudike" target="_blank">LinkedIn</a></li>
+        <li><a href="https://www.salesforce.com/trailblazer/cnwabudike202" target="_blank">Trailhead</a></li>
+        <li><a href="contact.html">Contact page</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Christiana Nwabudike. Built with care.</span>
+    <div class="footer-socials">
+      <a href="mailto:cristiana.nwabudike@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/christiana-nwabudike" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.salesforce.com/trailblazer/cnwabudike202" target="_blank" aria-label="Trailhead"><i class="fas fa-mountain"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills — Christiana Nwabudike</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  .skills-section { padding: 5rem 0; }
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+    margin-top: 3rem;
+  }
+  .skill-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--grad-warm);
+  }
+  .skill-card:nth-child(2)::before { background: linear-gradient(90deg, #FF6B4A, #F5B544); }
+  .skill-card:nth-child(3)::before { background: var(--grad-cool); }
+  .skill-card:nth-child(4)::before { background: linear-gradient(90deg, #0E7C7B, #5BA4E0); }
+  .skill-card:nth-child(5)::before { background: linear-gradient(90deg, #F5B544, #FF6B4A); }
+  .skill-card:nth-child(6)::before { background: linear-gradient(90deg, #5BA4E0, #0E7C7B); }
+  .skill-card:nth-child(7)::before { background: linear-gradient(90deg, #FF6B4A, #0E7C7B); }
+  .skill-card:nth-child(8)::before { background: var(--grad-warm); }
+  .skill-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+  .skill-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .skill-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--cream-soft);
+    color: var(--coral);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .skill-card:nth-child(2) .skill-icon { color: #B8801A; }
+  .skill-card:nth-child(3) .skill-icon { color: var(--teal); }
+  .skill-card:nth-child(4) .skill-icon { color: var(--sky); }
+  .skill-card:nth-child(5) .skill-icon { color: var(--coral-deep); }
+  .skill-card:nth-child(6) .skill-icon { color: var(--teal); }
+  .skill-card:nth-child(7) .skill-icon { color: var(--coral); }
+  .skill-card:nth-child(8) .skill-icon { color: var(--coral); }
+  .skill-head h3 { font-size: 1.35rem; margin: 0; }
+
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .skill-list li {
+    background: var(--cream-soft);
+    color: var(--ink-soft);
+    padding: 0.45rem 0.95rem;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+  }
+  .skill-list li:hover {
+    background: white;
+    border-color: var(--coral);
+    color: var(--coral-deep);
+  }
+
+  .approach {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .approach::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 107, 74, 0.2), transparent 70%);
+  }
+  .approach .eyebrow { color: var(--amber); }
+  .approach .eyebrow::before { background: var(--amber); }
+  .approach h2 { color: var(--cream); max-width: 600px; }
+  .approach h2 em { color: var(--amber); font-style: italic; font-weight: 400; }
+  .approach-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; position: relative; }
+  .approach-item h3 {
+    color: var(--cream);
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .approach-item h3 span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--coral);
+    color: var(--cream);
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 0.95rem;
+  }
+  .approach-item p { color: rgba(250, 247, 242, 0.7); font-size: 0.95rem; }
+
+  @media (max-width: 900px) {
+    .skill-grid { grid-template-columns: 1fr; }
+    .approach-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Christiana<span>.</span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+      <li><a href="contact.html" class="nav-cta">Get in touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">Skills</span>
+    <h1 class="mt-2">What I bring to the table.</h1>
+    <p>A snapshot of the tools, platforms, and practices I work with day-to-day — across Salesforce, nCino, AI/Agentforce, and adjacent ecosystems.</p>
+  </div>
+</header>
+
+<section class="skills-section">
+  <div class="container">
+    <div class="skill-grid">
+
+      <div class="skill-card">
+        <div class="skill-head">
+          <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+          <h3>Salesforce &amp; nCino Platforms</h3>
+        </div>
+        <ul class="skill-list">
+          <li>Sales Cloud</li><li>Service Cloud</li><li>Financial Services Cloud</li>
+          <li>Experience Cloud</li><li>NPSP (Nonprofit Success Pack)</li>
+          <li>Salesforce CPQ</li><li>nCino Commercial Banking</li>
+          <li>DocManager</li><li>Smart Checklist</li><li>Forms Manager</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-head">
+          <div class="skill-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+          <h3>AI &amp; Intelligent Automation</h3>
+        </div>
+        <ul class="skill-list">
+          <li>Agentforce</li><li>Einstein Trust Layer</li>
+          <li>Prompt Builder &amp; Prompt Templates</li>
+          <li>Einstein Copilot</li><li>Data Cloud</li>
+          <li>AI-Assisted Admin Workflows</li>
+          <li>MCP (Model Context Protocol) Integration</li>
+          <li>Custom AI Agents &amp; System Prompts</li>
+          <li>Responsible AI Guardrails</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-head">
+          <div class="skill-icon"><i class="fas fa-bolt"></i></div>
+          <h3>Automation &amp; Configuration</h3>
+        </div>
+        <ul class="skill-list">
+          <li>Flow Builder</li><li>Screen Flows</li><li>Record-Triggered Flows</li>
+          <li>Scheduled Flows</li><li>Validation Rules</li>
+          <li>Formula Fields</li><li>Approval Processes</li>
+          <li>Custom Objects &amp; Fields</li><li>Lookup Filters</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-head">
+          <div class="skill-icon"><i class="fas fa-code"></i></div>
+          <h3>Development &amp; Code</h3>
+        </div>
+        <ul class="skill-list">
+          <li>Apex (learning &amp; applying)</li>
+          <li>SOQL</li><li>Lightning Web Components (LWC)</li>
+          <li>Custom Metadata Types</li>
+          <li>Salesforce Sites &amp; Public Pages</li>
+          <li>WITH SECURITY_ENFORCED queries</li>
+          <li>Apex Test Coverage</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-head">
+          <div class="skill-icon"><i class="fas fa-arrows-rotate"></i></div>
+          <h3>Integration &amp; DevOps</h3>
+        </div>
+        <ul class="skill-list">
+          <li>Data Loader</li><li>Salesforce Inspector</li>
+          <li>Workbench</li><li>Change Sets</li>
+          <li>AutoRabit</li><li>Azure</li>
+          <li>Third-Party Integrations</li>
+          <li>DocuSign</li><li>SharePoint</li>
+          <li>Nintex</li><li>Gainsight</li><li>Gong</li><li>ZoomInfo</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-head">
+          <div class="skill-icon"><i class="fas fa-shield-halved"></i></div>
+          <h3>Data, Security &amp; Governance</h3>
+        </div>
+        <ul class="skill-list">
+          <li>Org-Wide Defaults</li><li>Role Hierarchies</li>
+          <li>Profiles &amp; Permission Sets</li>
+          <li>Sharing Rules</li><li>Field-Level Security</li>
+          <li>Duplicate Rules</li><li>Data Migration</li>
+          <li>Data Quality &amp; Governance</li>
+          <li>PIPEDA / GDPR Awareness</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-head">
+          <div class="skill-icon"><i class="fas fa-clipboard-list"></i></div>
+          <h3>Documentation &amp; Delivery</h3>
+        </div>
+        <ul class="skill-list">
+          <li>Process Mapping</li><li>User Guides</li><li>Training Materials</li>
+          <li>Agile / Scrum</li><li>Jira (Epics, Stories, Sprints)</li>
+          <li>Backlog Grooming</li><li>Release Notes</li>
+          <li>Release Testing &amp; Management</li>
+          <li>Sandbox Management &amp; Deployment</li>
+          <li>Root Cause Analysis</li>
+          <li>User Stories &amp; Acceptance Criteria</li>
+        </ul>
+      </div>
+
+      <div class="skill-card" style="grid-column: 1 / -1;">
+        <div class="skill-head">
+          <div class="skill-icon"><i class="fas fa-comments"></i></div>
+          <h3>Communication &amp; Consulting</h3>
+        </div>
+        <ul class="skill-list">
+          <li>Stakeholder Management</li>
+          <li>Cross-Functional Collaboration</li>
+          <li>Requirements Gathering</li>
+          <li>Plain-Language Translation of Technical Concepts</li>
+          <li>User Training &amp; Enablement</li>
+          <li>Problem Solving</li><li>Detail-Oriented</li><li>Adaptable</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="approach">
+  <div class="container">
+    <span class="eyebrow">My approach</span>
+    <h2 class="mt-2">Four habits that <em>actually</em> ship.</h2>
+    <div class="approach-grid">
+      <div class="approach-item">
+        <h3><span>1</span> Understand first</h3>
+        <p>Before touching a single field, I shadow the user. Most "requirements" only make sense once you've seen how the real work actually happens.</p>
+      </div>
+      <div class="approach-item">
+        <h3><span>2</span> Declarative when possible</h3>
+        <p>Flow, validation rules, and formula fields handle 90% of what people reach for Apex for. Configuration is faster to ship, safer to change, and easier to inherit.</p>
+      </div>
+      <div class="approach-item">
+        <h3><span>3</span> Test in stages</h3>
+        <p>Sandbox → UAT → production. I'd rather catch a broken flow with one user than discover it Monday morning across forty.</p>
+      </div>
+      <div class="approach-item">
+        <h3><span>4</span> Document like a teammate</h3>
+        <p>Every field has a real description. Every flow has a clear purpose comment. The next admin shouldn't have to reverse-engineer my work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Christiana Nwabudike</h3>
+      <p>Salesforce &amp; nCino administrator based in Calgary, AB. Building thoughtful automation for commercial banking and beyond.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul class="footer-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:cristiana.nwabudike@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/christiana-nwabudike" target="_blank">LinkedIn</a></li>
+        <li><a href="https://www.salesforce.com/trailblazer/cnwabudike202" target="_blank">Trailhead</a></li>
+        <li><a href="contact.html">Contact page</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Christiana Nwabudike. Built with care.</span>
+    <div class="footer-socials">
+      <a href="mailto:cristiana.nwabudike@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/christiana-nwabudike" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.salesforce.com/trailblazer/cnwabudike202" target="_blank" aria-label="Trailhead"><i class="fas fa-mountain"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Christiana Nwabudike</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  .projects-section { padding: 5rem 0; }
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .project-card {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--line);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+  }
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow);
+    border-color: rgba(255, 107, 74, 0.3);
+  }
+  .project-banner {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+  .project-banner i {
+    font-size: 4rem;
+    opacity: 0.95;
+    z-index: 2;
+    transition: transform 0.5s;
+  }
+  .project-card:hover .project-banner i { transform: scale(1.15) rotate(-5deg); }
+  .project-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.18), transparent 60%);
+  }
+  .b1 { background: linear-gradient(135deg, #0B1B2B, #0E7C7B); }
+  .b2 { background: linear-gradient(135deg, #FF6B4A, #E8472A); }
+  .b3 { background: linear-gradient(135deg, #0E7C7B, #5BA4E0); }
+  .b4 { background: linear-gradient(135deg, #F5B544, #FF6B4A); }
+  .b5 { background: linear-gradient(135deg, #1B2D44, #5BA4E0); }
+  .b6 { background: linear-gradient(135deg, #5BA4E0, #0B1B2B); }
+  .b7 { background: linear-gradient(135deg, #0E7C7B, #F5B544); }
+  .b8 { background: linear-gradient(135deg, #FF6B4A, #0E7C7B); }
+
+  .volunteer-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(245, 181, 68, 0.18);
+    color: #B8801A;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: 1px solid rgba(245, 181, 68, 0.3);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 3;
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.95);
+  }
+  .ai-pill {
+    background: rgba(255, 107, 74, 0.95);
+    color: white;
+    border-color: var(--coral);
+  }
+  .project-body { padding: 2rem; flex: 1; display: flex; flex-direction: column; }
+  .project-body h3 { font-size: 1.4rem; margin-bottom: 0.85rem; }
+  .project-body > p { font-size: 1rem; flex: 1; margin-bottom: 1.5rem; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem; }
+  .project-link {
+    color: var(--coral);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.25s;
+  }
+  .project-card:hover .project-link { gap: 0.9rem; }
+
+  @media (max-width: 900px) {
+    .project-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Christiana<span>.</span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+      <li><a href="contact.html" class="nav-cta">Get in touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">Projects</span>
+    <h1 class="mt-2">Selected case studies.</h1>
+    <p>A mix of nCino commercial lending, Salesforce implementations, volunteer work for my church, and growing AI agent work — each one focused on real outcomes for the people using the system.</p>
+  </div>
+</header>
+
+<section class="projects-section">
+  <div class="container">
+    <div class="project-grid">
+
+      <a href="projects/fee-disbursement.html" class="project-card">
+        <div class="project-banner b1"><i class="fas fa-coins"></i></div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag tag-coral">nCino</span>
+            <span class="tag tag-teal">Salesforce Flow</span>
+            <span class="tag">Financial Services Cloud</span>
+          </div>
+          <h3>Fee &amp; Disbursement Automation</h3>
+          <p>Automated disbursement creation and calculation from fee records, with seamless sync to the core banking system and validation safeguards.</p>
+          <span class="project-link">Read case study <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a href="projects/discretion-controls.html" class="project-card">
+        <div class="project-banner b2"><i class="fas fa-shield-halved"></i></div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag tag-coral">nCino</span>
+            <span class="tag tag-teal">Approvals</span>
+            <span class="tag">Governance</span>
+          </div>
+          <h3>Fee &amp; Rate Discretion Controls</h3>
+          <p>Implemented Salesforce-based governance for fee and rate discretion approvals — two-step escalations, validation rules, and full audit traceability.</p>
+          <span class="project-link">Read case study <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a href="projects/borrowing-structure.html" class="project-card">
+        <div class="project-banner b3"><i class="fas fa-diagram-project"></i></div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag tag-coral">nCino</span>
+            <span class="tag tag-teal">Reporting</span>
+            <span class="tag">Risk</span>
+          </div>
+          <h3>Loan Borrowing Structure Optimization</h3>
+          <p>Restructured borrowing members and loan hierarchies for complex business lending, with dashboards giving real visibility into borrower group exposure.</p>
+          <span class="project-link">Read case study <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a href="projects/sales-optimization.html" class="project-card">
+        <div class="project-banner b4"><i class="fas fa-chart-line"></i></div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag tag-amber">Sales Cloud</span>
+            <span class="tag tag-teal">Flow</span>
+            <span class="tag">Pipeline</span>
+          </div>
+          <h3>Salesforce Sales Process Optimization</h3>
+          <p>Streamlined lead-to-opportunity conversion and pipeline management using advanced configuration, approval processes, and pipeline dashboards.</p>
+          <span class="project-link">Read case study <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a href="projects/service-cloud.html" class="project-card">
+        <div class="project-banner b5"><i class="fas fa-headset"></i></div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag tag-coral">Service Cloud</span>
+            <span class="tag tag-teal">Case Management</span>
+            <span class="tag">CX</span>
+          </div>
+          <h3>Service Cloud Enhancement</h3>
+          <p>Configured Omni-Channel routing, SLAs, escalation rules, and a knowledge base — empowering agents and reducing inbound call volume.</p>
+          <span class="project-link">Read case study <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a href="projects/ai-agent.html" class="project-card" style="position: relative;">
+        <span class="volunteer-pill ai-pill"><i class="fas fa-wand-magic-sparkles"></i> AI</span>
+        <div class="project-banner b6"><i class="fas fa-robot"></i></div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag tag-coral">AI Agent</span>
+            <span class="tag tag-teal">MCP</span>
+            <span class="tag">Prompt Engineering</span>
+          </div>
+          <h3>Multi-Purpose AI Admin Agent</h3>
+          <p>Designed and deployed a Claude-based AI agent connected to Salesforce, Slack, and Gmail via MCP — drafting comms, briefing meetings, and accelerating admin workflows.</p>
+          <span class="project-link">Read case study <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a href="projects/lhcc-npsp.html" class="project-card" style="position: relative;">
+        <span class="volunteer-pill"><i class="fas fa-heart"></i> Volunteer</span>
+        <div class="project-banner b7"><i class="fas fa-church"></i></div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag tag-amber">NPSP</span>
+            <span class="tag tag-teal">Data Migration</span>
+            <span class="tag">Security Model</span>
+          </div>
+          <h3>LHCC Salesforce NPSP Implementation</h3>
+          <p>Leading a full Salesforce NPSP build for a two-campus church — custom data model, seven-role security hierarchy, 14 Epics across 12 sprints, and 1,185-row data migration.</p>
+          <span class="project-link">Read case study <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a href="projects/lhcc-qr-checkin.html" class="project-card" style="position: relative;">
+        <span class="volunteer-pill"><i class="fas fa-heart"></i> Volunteer</span>
+        <div class="project-banner b8"><i class="fas fa-qrcode"></i></div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag tag-coral">Apex</span>
+            <span class="tag tag-teal">LWC</span>
+            <span class="tag">Experience Cloud</span>
+          </div>
+          <h3>QR-Based Church Check-In System</h3>
+          <p>Built and deployed a public, token-secured QR check-in flow for LHCC — Apex controller, Lightning Web Component, Experience Cloud Site, and full test coverage.</p>
+          <span class="project-link">Read case study <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Christiana Nwabudike</h3>
+      <p>Salesforce &amp; nCino administrator based in Calgary, AB. Building thoughtful automation for commercial banking and beyond.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul class="footer-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:cristiana.nwabudike@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/christiana-nwabudike" target="_blank">LinkedIn</a></li>
+        <li><a href="https://www.salesforce.com/trailblazer/cnwabudike202" target="_blank">Trailhead</a></li>
+        <li><a href="contact.html">Contact page</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Christiana Nwabudike. Built with care.</span>
+    <div class="footer-socials">
+      <a href="mailto:cristiana.nwabudike@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/christiana-nwabudike" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.salesforce.com/trailblazer/cnwabudike202" target="_blank" aria-label="Trailhead"><i class="fas fa-mountain"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

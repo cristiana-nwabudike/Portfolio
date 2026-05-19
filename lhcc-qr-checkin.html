@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR-Based Church Check-In System — Christiana Nwabudike</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  .case-hero {
+    background: var(--grad-hero);
+    color: var(--cream);
+    padding: 6rem 0 8rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .case-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 70px;
+    background: var(--cream);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+  }
+  .case-hero .eyebrow { color: var(--amber); }
+  .case-hero .eyebrow::before { background: var(--amber); }
+  .case-hero h1 { color: var(--cream); margin: 1.25rem 0 1rem; }
+  .case-hero p.subtitle {
+    color: rgba(250, 247, 242, 0.85);
+    font-size: 1.25rem;
+    max-width: 680px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(250, 247, 242, 0.75);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    transition: gap 0.25s, color 0.2s;
+  }
+  .back-link:hover { gap: 0.85rem; color: var(--coral); }
+
+  .meta-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+    margin-top: -3.5rem;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 3;
+  }
+  .meta-cell {
+    padding: 0 1.25rem;
+    border-right: 1px solid var(--line);
+  }
+  .meta-cell:last-child { border-right: none; }
+  .meta-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+  .meta-value { font-weight: 600; color: var(--ink); }
+
+  .case-content { padding: 0 0 5rem; }
+  .case-section { margin-bottom: 4rem; }
+  .case-section h2 { margin-bottom: 1.25rem; font-size: 2rem; }
+  .case-section h2 em { color: var(--coral); font-style: italic; font-weight: 400; }
+  .case-section p { font-size: 1.08rem; margin-bottom: 1rem; max-width: 760px; }
+  .case-section ul { margin-left: 1.25rem; }
+  .case-section ul li {
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    padding-left: 0.5rem;
+  }
+  .case-section ul li::marker { color: var(--coral); }
+
+  .solution-grid { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
+  .solution-step {
+    background: white;
+    border-left: 4px solid var(--coral);
+    border-radius: var(--radius);
+    padding: 1.75rem 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s;
+  }
+  .solution-step:hover { transform: translateX(6px); box-shadow: var(--shadow); }
+  .solution-step h4 { font-size: 1.2rem; margin-bottom: 0.6rem; font-family: var(--font-display); }
+  .solution-step p { margin: 0; font-size: 1rem; }
+
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .outcome-card {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 2.5rem 1.5rem;
+    border-radius: var(--radius);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .outcome-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -30%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 107, 74, 0.25), transparent 70%);
+  }
+  .outcome-num {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1;
+    background: var(--grad-warm);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+  .outcome-label {
+    font-size: 0.95rem;
+    color: rgba(250, 247, 242, 0.8);
+    position: relative;
+  }
+
+  .tools-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+
+  .next-project {
+    background: var(--cream-soft);
+    padding: 4rem 0;
+    text-align: center;
+  }
+  .next-project h3 { margin-bottom: 1.5rem; }
+  .next-project h3 em { color: var(--coral); font-style: italic; font-weight: 400; }
+
+  @media (max-width: 900px) {
+    .meta-bar { grid-template-columns: 1fr; gap: 1.25rem; padding: 1.5rem; }
+    .meta-cell { border-right: none; border-bottom: 1px solid var(--line); padding: 0 0 1rem; }
+    .meta-cell:last-child { border-bottom: none; padding-bottom: 0; }
+    .outcomes-grid { grid-template-columns: 1fr; }
+  }
+</style>
+<style>
+  .volunteer-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(245, 181, 68, 0.2);
+    color: var(--amber);
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(245, 181, 68, 0.4);
+    margin-bottom: 1rem;
+  }
+  .ai-banner {
+    background: rgba(255, 107, 74, 0.2);
+    color: var(--coral);
+    border-color: rgba(255, 107, 74, 0.4);
+  }
+  code {
+    background: rgba(255, 107, 74, 0.12);
+    color: var(--coral-deep);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">Christiana<span>.</span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../skills.html">Skills</a></li>
+      <li><a href="../projects.html">Projects</a></li>
+      <li><a href="../certifications.html">Certifications</a></li>
+      <li><a href="../contact.html" class="nav-cta">Get in touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="container">
+    <a href="../projects.html" class="back-link"><i class="fas fa-arrow-left"></i> All projects</a>
+    <div class="volunteer-banner"><i class="fas fa-heart"></i> Volunteer Project</div>
+    <span class="eyebrow">Case Study</span>
+    <h1>QR-Based Church Check-In System</h1>
+    <p class="subtitle">Apex, LWC, and a public Experience Cloud Site — built to make Sunday morning faster.</p>
+    <div class="flex gap-1 mt-3" style="flex-wrap: wrap;">
+      <span class="tag tag-amber">Volunteer</span><span class="tag tag-coral">Apex</span><span class="tag tag-teal">LWC</span><span class="tag ">Experience Cloud</span>
+    </div>
+  </div>
+</header>
+
+<section style="padding: 0;">
+  <div class="container">
+    <div class="meta-bar">
+      <div class="meta-cell"><div class="meta-label">Role</div><div class="meta-value">Volunteer Admin (Self-Built Solution)</div></div>
+      <div class="meta-cell"><div class="meta-label">Platform</div><div class="meta-value">Salesforce + Apex + LWC + Experience Cloud Site</div></div>
+      <div class="meta-cell"><div class="meta-label">Focus area</div><div class="meta-value">Nonprofit Operations (Pro Bono)</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="case-content">
+  <div class="container">
+
+    <div class="case-section">
+      <h2>The <em>overview.</em></h2>
+      <p>Sunday morning check-in for a multi-hundred-member church can't be a bottleneck. The team needed something faster than paper or a tablet form — something members could trigger themselves from their phone, with no app to install. As an admin who's also growing development skills, I took on the Apex and LWC pieces myself, learning on the way and shipping to production.</p>
+    </div>
+
+    <div class="case-section">
+      <h2>The <em>challenge.</em></h2>
+      <ul><li>Need a check-in experience that works for unauthenticated members on their own phone — no login, no app install.</li><li>Each Contact needs a unique, opaque token (not the Contact ID) to prevent URL enumeration.</li><li>Same QR code URL every week — service context (campus, date, service type) must change without re-issuing tokens.</li><li>Guest user security model needs to be tight: insert-only access to Attendance, no enumeration possible.</li></ul>
+    </div>
+
+    <div class="case-section">
+      <h2>The <em>solution.</em></h2>
+      <div class="solution-grid"><div class="solution-step"><h4>Unique token model with external ID</h4><p>Added a CheckIn_Token__c field on Contact (Text, Unique, External ID, Required) populated via batch Apex on initial load and a record-triggered Flow on new Contact creation.</p></div><div class="solution-step"><h4>Apex controller with secure SOQL</h4><p>Wrote an Apex controller using <code>WITH SECURITY_ENFORCED</code> for the Contact lookup, running <code>without sharing</code> only for the guest context and scoping queries tightly. Idempotent check-in logic prevents double-counting.</p></div><div class="solution-step"><h4>Lightning Web Component for the check-in page</h4><p>Built a public-facing LWC hosted on a Salesforce Experience Cloud Site, reading the token from the URL parameter and surfacing a friendly success or error state.</p></div><div class="solution-step"><h4>Custom Metadata for service context</h4><p>Created an Active_Service__mdt Custom Metadata Type (Campus, Service Type, Service Date, Is Active) — the QR code URL stays constant while the active service record changes weekly. Attendance records get stamped automatically.</p></div><div class="solution-step"><h4>Test coverage &amp; hardened guest profile</h4><p>Wrote Apex test methods covering happy path, invalid token, inactive service, and rate-limit branches. Guest user profile stripped to insert-only on Attendance with no enumeration access.</p></div></div>
+    </div>
+
+    <div class="case-section">
+      <h2>The <em>outcomes.</em></h2>
+      <div class="outcomes-grid"><div class="outcome-card"><div class="outcome-num">Self-serve</div><div class="outcome-label">Sunday-morning check-in on member phones</div></div><div class="outcome-card"><div class="outcome-num">Deployed</div><div class="outcome-label">to Production with full test coverage</div></div><div class="outcome-card"><div class="outcome-num">Reusable</div><div class="outcome-label">across both campuses with the same codebase</div></div></div>
+    </div>
+
+    <div class="case-section">
+      <h2>Tools &amp; <em>technologies.</em></h2>
+      <div class="tools-list"><span class="tag">Apex</span><span class="tag">Lightning Web Components (LWC)</span><span class="tag">SOQL</span><span class="tag">WITH SECURITY_ENFORCED</span><span class="tag">Custom Metadata Types</span><span class="tag">Salesforce Sites</span><span class="tag">Experience Cloud</span><span class="tag">Guest User Profiles</span><span class="tag">Record-Triggered Flows</span><span class="tag">Apex Test Classes</span></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="next-project">
+  <div class="container">
+    <h3>Want to see <em>more?</em></h3>
+    <a href="../projects.html" class="btn btn-primary">Browse all projects <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Christiana Nwabudike</h3>
+      <p>Salesforce &amp; nCino administrator based in Calgary, AB. Building thoughtful automation for commercial banking and beyond.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul class="footer-links">
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../skills.html">Skills</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../certifications.html">Certifications</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:cristiana.nwabudike@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/christiana-nwabudike" target="_blank">LinkedIn</a></li>
+        <li><a href="https://www.salesforce.com/trailblazer/cnwabudike202" target="_blank">Trailhead</a></li>
+        <li><a href="../contact.html">Contact page</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Christiana Nwabudike. Built with care.</span>
+    <div class="footer-socials">
+      <a href="mailto:cristiana.nwabudike@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/christiana-nwabudike" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.salesforce.com/trailblazer/cnwabudike202" target="_blank" aria-label="Trailhead"><i class="fas fa-mountain"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
